@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Csiha - Todo</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<div id="header">
+		<ul id="menu_buttons">
+				<a href="index.html"><li id="all_menu" class="menuitem">Mind</li></a>
+				<a href="pending.html"><li id="pending_menu" class="menuitem">Folyamatban</li></a>
+				<a href="done.html"><li id="done_menu" class="menuitem">Kész</li></a>
+				<a href="new.html"><li id="new_menu" class="menuitem">Új</li></a>
+		</ul>
+	</div>
+	<div id="screen">
+		<h1>Új Todo Elem:</h1>
+		<form id="todo_form" method="post" action="php/add_todo.php">
+			<textarea rows="5" name="todo" form="todo_form" id="todo_textarea"></textarea><br>
+			<button type="submit" value="bekuld" id="todo_button" name="save">Beküld</button>
+		</form>
+	</div>
+</body>
+
+</html>

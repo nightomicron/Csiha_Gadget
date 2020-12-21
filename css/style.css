@@ -1,0 +1,193 @@
+/*altalanos egesz oldalra vonatkozo stilusok*/
+body {
+	background-color: #E7E7E7;
+	font-family: "Century Gothic", Arial, sans-serif;
+	text-color: black;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+/*fejlec kezdet*/
+#header {
+	position: fixed;
+	min-width: 500px;
+	width: 50%;
+	height: 60px;
+	top: 0px;
+	left: 50%;
+	transform: translate(-50%);
+	background-color: #C54B3C;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	line-height: 60px;
+	z-index: 1;
+}
+
+.menuitem{
+	background: #C54B3C;
+	transition: background 0.5s;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	list-style-type: none;
+}
+
+.menuitem:hover{
+	background: #93382d;
+}
+
+#all_menu {
+	position: absolute;
+	width: 100px;
+	height: 60px;
+	top: 0px;
+	left: 0px;
+	overflow: hidden;
+}
+
+#pending_menu {
+	position: absolute;
+	width: 140px;
+	height: 60px;
+	top: 0px;
+	left: 100px;
+	overflow: hidden;
+}
+
+#done_menu {
+	position: absolute;
+	width: 100px;
+	height: 60px;
+	top: 0px;
+	left: 240px;
+	overflow: hidden;
+}
+
+#new_menu {
+	position: absolute;
+	width: 50px;
+	height: 60px;
+	top: 0px;
+	left: 340px;
+	overflow: hidden;
+	float: right;
+}
+/*fejlec veg*/
+
+/*oldal kezdet*/
+#screen {
+	position: absolute;
+	min-width: 500px;
+	width: 50%;
+	min-height: 800px;
+	background-color: white;
+	top: 50px;
+	left: 50%;
+	transform: translate(-50%);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	overflow: hidden;
+}
+
+#filter {
+	position: relative;
+	top: 10px;
+	left: 40px;
+	font-size: 20px;
+}
+
+#filter_input {
+	position: relative;
+	font-size: 15px;
+	border-radius: 20px;
+	padding: 5px;
+}
+
+#todo_list {
+	position: relative;
+	top: 0px;
+	list-style-type: none;
+	font-size: 25px;
+}
+
+.todo_item {
+	background-color: #aaaaaa;
+	color: white;
+	margin-left: 0px;
+	margin-right: 40px;
+	margin-top: 40px;
+	border-radius: 25px;
+	padding: 20px;
+}
+
+.status {
+	font-size: 20px;
+	margin-top: 10px;
+	border-top: 2px solid white;
+}
+
+.finish {
+	font-size: 20px;
+	margin-top: 10px;
+	color: lightgreen;
+	font-weight: bold;
+}
+
+.delete {
+	font-size: 20px;
+	margin-top: 10px;
+	color: #ff6554;
+	font-weight: bold;
+}
+
+
+/*oldal vege*/
+
+/*uj todo kezdet*/
+
+h1 {
+	text-shadow: 1.5px 1.5px grey;
+	position: relative;
+	text-align: center;
+	border-bottom: 1px solid #c6c6c6;
+	margin-left: 50px;
+	margin-right: 50px;
+	background-color: #C54B3C;
+	border-radius: 25px;
+	color: white;
+}
+
+#todo_textarea {
+	position: relative;
+	top: 0px;
+	width: 50%;
+	left: 50%;
+	transform: translate(-50%);
+	border-radius: 25px;
+	padding: 20px;
+	background-color: #aaaaaa;
+	color: white;
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-size: 20px;
+	
+	
+}
+#todo_button {
+	position: relative;
+	top: 0px;
+	width: 50%;
+	left: 50%;
+	transform: translate(-50%);
+	background-color: #c54b3c;
+	border-radius: 25px;
+	color: white;
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-size: 20px;
+	
+}

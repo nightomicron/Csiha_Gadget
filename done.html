@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Csiha - Todo</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+	<meta charset="utf-8">
+	<script src="js/angular.min.js"></script>
+</head>
+
+<body>
+	<div id="header">
+		<ul id="menu_buttons">
+				<a href="index.html"><li id="all_menu" class="menuitem">Mind</li></a>
+				<a href="pending.html"><li id="pending_menu" class="menuitem">Folyamatban</li></a>
+				<a href="done.html"><li id="done_menu" class="menuitem">Kész</li></a>
+				<a href="new.html"><li id="new_menu" class="menuitem">Új</li></a>
+		</ul>
+	</div>
+	<div id="screen" ng-app="myApp" ng-controller="todoCtrl">
+		<p id="filter">Keresés: <input type="text" ng-model="search" id="filter_input"></p>
+		<ul id="todo_list">
+			<li class="todo_item" ng-repeat="x in todoes | filter:search">
+				<div class="todo">{{x.description}}</div>
+				<div class="status">Státusz: {{x.status}}</div>
+				<a href="php/delete_todo.php?id={{x.id}}&page=done"><div class="delete">Töröl</div></a>
+			</li>
+		</ul>
+	</div>
+	
+	<script>
+	var app = angular.module('myApp', []);
+	app.controller('todoCtrl', function($scope, $http) {
+	   $http.get("php/sort_done.php")
+	   .then(function (response) {$scope.todoes = response.data.records;});
+	});
+	</script>
+</body>
+
+</html>
