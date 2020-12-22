@@ -1,25 +1,29 @@
 <!DOCTYPE html>
+<!-- A new oldalon lehet felvenni új feladat elemet az adatbázisba -->
 <html>
 <head>
 	<title>Csiha - Todo</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all"> <!-- Stílus link -->
 	<meta charset="utf-8">
 </head>
 
 <body>
+	<!-- Fejléc -->
 	<div id="header">
 		<ul id="menu_buttons">
-				<a href="index.html"><li id="all_menu" class="menuitem">Mind</li></a>
-				<a href="pending.html"><li id="pending_menu" class="menuitem">Folyamatban</li></a>
-				<a href="done.html"><li id="done_menu" class="menuitem">Kész</li></a>
-				<a href="new.html"><li id="new_menu" class="menuitem">Új</li></a>
+				<a href="index.html"><li id="all_menu" class="menuitem">Mind</li></a> <!-- Link, mely kattintásra betölti az index oldalt -->
+				<a href="pending.html"><li id="pending_menu" class="menuitem">Folyamatban</li></a> <!-- Link, mely kattintásra betölti a folyamatban lévő feladatok oldalät -->
+				<a href="done.html"><li id="done_menu" class="menuitem">Kész</li></a> <!-- Link, mely kattintásra betölti az elkészült feladatok oldalát oldalt -->
+				<a href="new.html"><li id="new_menu" class="menuitem">Új</li></a> <!-- Link, mely kattintásra betölti az új elemek oldalt -->
 		</ul>
 	</div>
+	<!-- A screenben található a form, mellyel új feladat elemet lehet felvenni az adatbázisba -->
 	<div id="screen">
 		<h1>Új Todo Elem:</h1>
+		<!-- Form, mellyel új feladat elemet lehet felvenni az adatbázisba, az értékeket post művelettel továbbít -->
 		<form id="todo_form" method="post" action="php/add_todo.php">
-			<textarea rows="5" name="todo" form="todo_form" id="todo_textarea"></textarea><br>
-			<button type="submit" value="bekuld" id="todo_button" name="save">Beküld</button>
+			<textarea rows="5" name="todo" form="todo_form" id="todo_textarea"></textarea><br> <!-- Beviteli mező a feladat leíráshoz -->
+			<button type="submit" value="bekuld" id="todo_button" name="save">Beküld</button> <!-- Gomb, mely meghívja az add_todo.php-t -->
 		</form>
 	</div>
 </body>

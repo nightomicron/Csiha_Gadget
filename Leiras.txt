@@ -1,0 +1,19 @@
+Ez az alkalmazás egy todo elemeket tartalmazó mysql adatbázis manipulálására és az elemei megjelenítésére alkalmas.
+
+Funkciók:
+-Képes megjeleníteni az adatbázis elemeit egy listában.
+-Megjeleníti a todo elemek leírását és azok státuszát mely lehet "folyamatban" vagy "kész"
+-Az elemek státuszát át tudja állítani folyamatban lévőről befejezetté
+-Csak a befejezett feladatokat lehet törölni, mivel így a lehetőség, hogy a felhasználó véletlen kitöröl egy folyamatban lévő feladatot minimális
+-Lehet új feladat elemeket felvenni
+-Képes szűrni a feladat elemeket a státuszuk alapján
+-A felhasználó tovább tudja szűrni az elemeket id, státusz vagy leírás alapján
+-Átlátható kinézet
+
+Telepítés:
+
+1, Egy adatbázis szerver létrehozása / futtatása (pl.: xampp - apache segítségével) 
+2, Egy adatbázis létrehozása "csiha" néven
+3, Az sql mappában lévő csiha.sql fájl importálása a "csiha" nevű adatbázisba
+4, Az alkalmazás futtatása az adatbázis szerveren (pl.: xampp esetén betenni az egész alkalmazás mappáját a htdocs nevű mappába)
+5, Egy böngészővel felcsatlakozni az adatbázis szerverre és megnyitni az index.html fájlt

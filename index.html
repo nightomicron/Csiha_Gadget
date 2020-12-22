@@ -1,33 +1,44 @@
 <!DOCTYPE html>
+<!-- Az index oldalon kerül az összes, adatbázisban tárolt elem kilistázása-->
 <html>
 <head>
 	<title>Csiha - Todo</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all"> <!-- Stílus link -->
 	<meta charset="utf-8">
-	<script src="js/angular.min.js"></script>
+	<script src="js/angular.min.js"></script> <!-- Angular JS Keretrendszer -->
 </head>
 
 <body>
+	<!-- Fejléc -->
 	<div id="header">
+		<!-- Lista, mely a fejlécben felsorolja a betölthető oldalak linkjeit -->
 		<ul id="menu_buttons">
-				<a href="index.html"><li id="all_menu" class="menuitem">Mind</li></a>
-				<a href="pending.html"><li id="pending_menu" class="menuitem">Folyamatban</li></a>
-				<a href="done.html"><li id="done_menu" class="menuitem">Kész</li></a>
-				<a href="new.html"><li id="new_menu" class="menuitem">Új</li></a>
+				<a href="index.html"><li id="all_menu" class="menuitem">Mind</li></a> <!-- Link, mely kattintásra betölti az index oldalt -->
+				<a href="pending.html"><li id="pending_menu" class="menuitem">Folyamatban</li></a> <!-- Link, mely kattintásra betölti a folyamatban lévő feladatok oldalät -->
+				<a href="done.html"><li id="done_menu" class="menuitem">Kész</li></a> <!-- Link, mely kattintásra betölti az elkészült feladatok oldalát oldalt -->
+				<a href="new.html"><li id="new_menu" class="menuitem">Új</li></a> <!-- Link, mely kattintásra betölti az új elemek oldalt -->
 		</ul>
 	</div>
+	<!-- A screenben kerülnek felsorolásra az adatbázisban tárolt feladat elemek lista formában -->
 	<div id="screen" ng-app="myApp" ng-controller="todoCtrl">
+		<!-- Keresés beviteli mező, a felhasználó által itt megadott szöveg, státusz, vagy id alapján szűri a listát az alkalmazás -->
 		<p id="filter">Keresés: <input type="text" ng-model="search" id="filter_input"></p>
+		<!-- Lista elemek, melyek tartalmazzák a feladat leírását és státuszát -->
 		<ul id="todo_list">
 			<li class="todo_item" ng-repeat="x in todoes | filter:search">
 				<div class="todo">{{x.description}}</div>
 				<div class="status">Státusz: {{x.status}}</div>
+				<!-- Link, kattintásra meghívja az update_todo.php fájlt, mely a kiválasztott elem státuszát befejezettre állítja -->
+				<!-- Ez a link csak akkor jelenik meg, ha a feladat folyamatban van még -->
 				<a href="php/update_todo.php?id={{x.id}}&page=all" ng-if="x.status=='folyamatban'"><div class="finish">Befejez</div></a>
-				<a href="php/delete_todo.php?id={{x.id}}&page=all"><div class="delete">Töröl</div></a>
+				<!-- Link, kattintásra meghívja a delete_todo.php fájlt, mely a kiválasztott elemet törli a listából és az adatbázisból is -->
+				<!-- Ez a link csak akkor jelenik meg, ha a feladat befejezett. -->
+				<a href="php/delete_todo.php?id={{x.id}}&page=all" ng-if="x.status!='folyamatban'"><div class="delete">Töröl</div></a>
 			</li>
 		</ul>
 	</div>
 	
+	<!-- Angular js-ben írt kontroller. Az adatbázisból kinyert adatok tárolását végzi, illetve a kinyerés folyamatát inicializálja -->
 	<script>
 	var app = angular.module('myApp', []);
 	app.controller('todoCtrl', function($scope, $http) {
